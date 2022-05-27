@@ -1,0 +1,23 @@
+.login-body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.crousel-body{
+    margin-top: 8vh;
+    height: 590px;
+    width: 441px;
+    position: relative;
+    background-image: url('../assets/images/reels.png');
+    background-size: cover;
+}
+
+.crousel-itself{
+    height: 423px;
+    width: 241px;
+    position: absolute; 
+    left: 143px;
+    top: 93px;
+}
