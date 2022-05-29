@@ -1,19 +1,17 @@
-.signup-body{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 5%;
+.signup-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
 }
 
-
-
-.logo-wrapper{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1%;
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1%;
 }
 
-.logo-img{
-    width: 80%;
+.logo-img {
+  width: 80%;
 }

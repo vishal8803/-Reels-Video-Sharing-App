@@ -1,16 +1,38 @@
-import React, {useContext, useEffect} from 'react'
-import { AuthContext } from '../context/AuthContext'
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { database } from "../firebase";
+import UploadVideo from "./UploadVideo";
 
 function Feed() {
-    const {logout} = useContext(AuthContext);
-    
-    
+  const { user, logout } = useContext(AuthContext);
+  const [userData, setUserData] = useState();
+
+  useEffect(() => {
+    let unsub = database.users.doc(user.uid).onSnapshot((snapshot) => {
+      setUserData(snapshot.data());
+    });
+    return () => {
+      unsub();
+    };
+  }, [user]);
+
   return (
-      <>
-    <div>Feed</div>
-    <button onClick={logout} >Logout</button>
+    <>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+        }}
+      >
+        <h1>Welcome to feed</h1>
+        <button onClick={logout}>Logout</button>
+
+        <UploadVideo user={userData} />
+      </div>
     </>
-  )
+  );
 }
 
-export default Feed
+export default Feed;
