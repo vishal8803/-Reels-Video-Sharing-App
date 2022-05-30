@@ -20,9 +20,10 @@ function Video({ src }) {
     <video
       src={src}
       onEnded={handleScroll}
+      loop="infinite"
       className="videos-styling"
       muted="muted"
-      onTouchStart={handleClick}
+      // onTouchStart={handleClick}
       onClick={handleClick}
     />
   );
