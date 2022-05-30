@@ -3,6 +3,7 @@ import { AuthContext } from "../context/AuthContext";
 import { database } from "../firebase";
 import UploadVideo from "./UploadVideo";
 import Post from "./Post";
+import NavBar from "./NavBar";
 
 function Feed() {
   const { user, logout } = useContext(AuthContext);
@@ -18,22 +19,29 @@ function Feed() {
   }, [user]);
 
   return (
-    <>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexDirection: "column",
-        }}
-      >
-        {/* <h1>Welcome to feed</h1> */}
-        <button onClick={logout}>Logout</button>
+    <div>
+      {userData ? (
+        <>
+          <NavBar user={userData} />
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "column",
+            }}
+          >
+            {/* <h1>Welcome to feed</h1> */}
+            {/* <button onClick={logout}>Logout</button> */}
 
-        <UploadVideo user={userData} />
-        <Post user={userData} />                    
-      </div>
-    </>
+            <UploadVideo user={userData} />
+            <Post user={userData} />
+          </div>
+        </>
+      ) : (
+        <></>
+      )}
+    </div>
   );
 }
 
