@@ -20,3 +20,13 @@
   left: 143px;
   top: 93px;
 }
+
+.margin{
+  margin-top: 2%;
+}
+
+@media screen and (max-width: 767px) {
+  .formobile{
+    display: none;
+  }
+}

@@ -98,7 +98,8 @@ export default function Login() {
   const classes = useStyles();
   return (
     <div className="login-body">
-      <div className="crousel-body">
+      
+      <div className="crousel-body formobile">
         <div className="crousel-itself">
           <CarouselProvider
             visibleSlides={1}
@@ -128,7 +129,7 @@ export default function Login() {
           </CarouselProvider>
         </div>
       </div>
-      <div className="card-wrapper">
+      <div className="card-wrapper margin">
         <Card sx={{ maxWidth: 360 }} variant="outlined">
           <CardContent>
             <div className="logo-wrapper">
