@@ -103,30 +103,29 @@ export default function NavBar({ user }) {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem onClick={handleProfileMenuOpen}>
+      <MenuItem onClick={handleProfile}>
         <IconButton
           size="large"
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
           color="inherit"
-          onClick={handleProfile}
         >
           <Avatar src={user.profileImageURL} />
         </IconButton>
         <p>Profile</p>
       </MenuItem>
       <MenuItem>
-        <IconButton size="large" color="inherit">
-          <Badge color="error" onClick={() => gotohome()}>
-            <HomeIcon onClick={() => gotohome()} />
+        <IconButton size="large" color="inherit" onClick={() => gotohome()}>
+          <Badge color="error" >
+            <HomeIcon/>
           </Badge>
         </IconButton>
         <p>Home</p>
       </MenuItem>
       <MenuItem>
-        <IconButton size="large" color="inherit">
-          <Badge color="error" onClick={handleLogout}>
+        <IconButton size="large" color="inherit" onClick={handleLogout}>
+          <Badge color="error" >
             <LogoutIcon />
           </Badge>
         </IconButton>
@@ -139,23 +138,23 @@ export default function NavBar({ user }) {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="static"
-        variant="outlined"
+        elevation={0}
         sx={{ backgroundColor: "#fff", color: "black" }}
       >
         <Toolbar>
           <div style={{ padding: "0.5rem" }}>
-            <img src={LOGO} style={{ width: "6rem" }} />
+            <img src={LOGO} alt="Company Logo" style={{ width: "6rem" }} />
           </div>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <IconButton size="large" color="inherit">
+            <IconButton size="large" color="inherit" onClick={() => gotohome()}>
               <Badge color="error">
-                <HomeIcon onClick={() => gotohome()} />
+                <HomeIcon  />
               </Badge>
             </IconButton>
-            <IconButton size="large" color="inherit">
+            <IconButton size="large" color="inherit" onClick={handleExplore}>
               <Badge color="error">
-                <ExploreIcon onClick={handleExplore} />
+                <ExploreIcon  />
               </Badge>
             </IconButton>
             <IconButton

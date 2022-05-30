@@ -9,7 +9,7 @@ function Comment({ userData, postData }) {
 
   useEffect(() => {
     setLikes(postData.likes.length);
-  }, []);
+  }, [postData]);
 
   const handlePostComment = () => {
     let obj = {

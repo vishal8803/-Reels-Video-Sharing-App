@@ -6,7 +6,7 @@ import Post from "./Post";
 import NavBar from "./NavBar";
 
 function Feed() {
-  const { user, logout } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [userData, setUserData] = useState();
 
   useEffect(() => {
