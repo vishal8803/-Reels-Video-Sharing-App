@@ -35,7 +35,7 @@ function Profile() {
   }, [id]);
 
   useEffect(() => {
-    if (user != null) {
+    if (user != null && user.postIds != null) {
       async function fecthData() {
         let parr = [];
         for (let i = 0; i < user.postIds.length; i++) {
@@ -48,6 +48,8 @@ function Profile() {
     }
   });
 
+  console.log(user)
+  console.log(posts)
 
   return (
     <div>
@@ -107,8 +109,28 @@ function Profile() {
         </div>
       ) : (
         <>
-          {" "}
-          <CircularProgress />
+          {
+              user ?<>
+              
+          <NavBar user={user} />
+          <div className="spacer"></div>
+          <div className="container">
+            <div className="upper-part">
+              <div className="profile-img">
+                <img src={user.profileImageURL} alt="user_image" />
+              </div>
+              <div className="info">
+                <Typography variant="h6">Name : {user.fullName}</Typography>
+                <Typography variant="h6">
+                  Posts : {user.postIds ? user.postIds.length : 0}
+                </Typography>
+              </div>
+            </div>
+            <hr style={{ marginTop: "3rem", marginBottom: "3rem" }} />
+              </div>
+              </> :  <CircularProgress />
+          }
+         
         </>
       )}
     </div>
